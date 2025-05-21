@@ -14,6 +14,7 @@ let score = 0;
 let gameInterval;
 let isGameOver = false;
 let screamLoop = false;
+let musicStarted = false;
 
 const restartBtn = document.getElementById("restartBtn");
 const jumpscareContainer = document.getElementById("jumpscareContainer");
@@ -222,4 +223,19 @@ btnLeft.addEventListener("touchstart", function (e) {
 btnRight.addEventListener("touchstart", function (e) {
   e.preventDefault();
   if (direction !== "LEFT") direction = "RIGHT";
+});
+
+function startMusicOnUserInteraction() {
+  if (!musicStarted) {
+    bgMusic.currentTime = 0;
+    bgMusic.volume = 0.7;
+    bgMusic.play();
+    musicStarted = true;
+  }
+}
+document.addEventListener("keydown", startMusicOnUserInteraction, {
+  once: true,
+});
+document.addEventListener("touchstart", startMusicOnUserInteraction, {
+  once: true,
 });
