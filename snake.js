@@ -24,6 +24,7 @@ const btnUp = document.getElementById("btnUp");
 const btnDown = document.getElementById("btnDown");
 const btnLeft = document.getElementById("btnLeft");
 const btnRight = document.getElementById("btnRight");
+const bgMusic = document.getElementById("bgMusic");
 
 function randomFood() {
   let newFood;
@@ -146,6 +147,7 @@ function gameOver() {
   ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
   ctx.shadowBlur = 0;
   restartBtn.style.display = "inline-block";
+  bgMusic.pause();
 
   // Jumpscare jika skor >= 5
   if (score >= 10) {
@@ -186,6 +188,9 @@ function startGame() {
   document.body.classList.remove("shaky");
   screamSound.pause();
   screamSound.currentTime = 0;
+  bgMusic.currentTime = 0;
+  bgMusic.volume = 0.7;
+  bgMusic.play();
 
   screamLoop = false;
 }
