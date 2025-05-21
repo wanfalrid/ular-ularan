@@ -1,0 +1,181 @@
+body {
+  background: #18181a;
+  color: #fff;
+  font-family: "Press Start 2P", "Courier New", Courier, monospace;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgba(30, 30, 40, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 0 40px #00ffe7, 0 0 10px #00ffe7 inset;
+  padding: 32px 40px 24px 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #00ffe7;
+  text-shadow: 0 0 8px #00ffe7, 0 0 2px #fff;
+}
+
+#score {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #fffa65;
+  text-shadow: 0 0 6px #fffa65, 0 0 2px #fff;
+}
+
+#gameCanvas {
+  background: #23232b;
+  border: 4px solid #00ffe7;
+  border-radius: 10px;
+  box-shadow: 0 0 24px #00ffe7, 0 0 4px #fff inset;
+  display: block;
+  margin: 0 auto 16px auto;
+}
+
+.controls p {
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+#restartBtn {
+  background: #00ffe7;
+  color: #23232b;
+  border: none;
+  border-radius: 8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  padding: 10px 28px;
+  margin-top: 10px;
+  box-shadow: 0 0 12px #00ffe7, 0 0 2px #fff inset;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+#restartBtn:hover {
+  background: #fffa65;
+  color: #18181a;
+  box-shadow: 0 0 18px #fffa65, 0 0 2px #fff inset;
+}
+
+@keyframes shaky {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-5px, 2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 4px) rotate(1deg);
+  }
+  30% {
+    transform: translate(5px, -2px) rotate(1deg);
+  }
+  40% {
+    transform: translate(3px, -4px) rotate(-1deg);
+  }
+  50% {
+    transform: translate(-5px, 2px) rotate(0deg);
+  }
+  60% {
+    transform: translate(5px, 2px) rotate(1deg);
+  }
+  70% {
+    transform: translate(-3px, -4px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(3px, 4px) rotate(1deg);
+  }
+  90% {
+    transform: translate(-5px, -2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-1deg);
+  }
+}
+
+.shaky {
+  animation: shaky 0.1s infinite;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px 4vw 16px 4vw;
+    border-radius: 10px;
+  }
+  h1 {
+    font-size: 1.1rem;
+  }
+  #score {
+    font-size: 1rem;
+  }
+  #gameCanvas {
+    width: 90vw !important;
+    height: 90vw !important;
+    max-width: 98vw;
+    max-height: 98vw;
+    border-width: 2px;
+  }
+  #jumpscareImg {
+    max-width: 90vw;
+    max-height: 50vh;
+  }
+  #jumpscareContainer {
+    padding: 0;
+  }
+}
+
+/* Kontrol sentuh */
+#touchControls {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #touchControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+  #touchControls button {
+    background: #00ffe7;
+    color: #23232b;
+    border: none;
+    border-radius: 8px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 1.5rem;
+    padding: 18px 24px;
+    box-shadow: 0 0 12px #00ffe7, 0 0 2px #fff inset;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+    margin: 0;
+    min-width: 56px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #touchControls button:active {
+    background: #fffa65;
+    color: #18181a;
+    box-shadow: 0 0 18px #fffa65, 0 0 2px #fff inset;
+  }
+  #touchControls > div > div {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    margin-top: 0;
+  }
+}
